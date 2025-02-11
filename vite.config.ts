@@ -92,7 +92,12 @@ export default defineConfig((config) => {
     },
     build: {
       target: 'esnext',
-      sourcemap: true, // Added this line
+      sourcemap: true, // Ensure this line
+      minify: 'terser',
+      terserOptions: {
+        mangle: false, // Disable mangling
+        compress: false, // Disable other optimizations
+      },
     },
     plugins: [
       nodePolyfills({
